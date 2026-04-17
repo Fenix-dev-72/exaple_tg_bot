@@ -52,7 +52,7 @@ class HealthHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
 def run_server():
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5000)) #
     server = HTTPServer(("0.0.0.0", port), HealthHandler)
     server.serve_forever()
 
