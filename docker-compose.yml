@@ -1,0 +1,26 @@
+services:
+  pg:
+    image: postgres:18-alpine3.23
+    container_name: pg
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 1
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  bot:
+    build: .
+    image: retrobot:alpine
+    container_name: bot_tg
+    restart: always
+    environment:
+      BOT_TOKEN: 8496243141:AAGYijkY5GNqjq3xxxVjdFZnGAoSjRaBrys
+    command: python3 main.py
+
+    depends_on:
+      - pg
+
+volumes:
+  pg_data:
