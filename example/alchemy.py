@@ -16,7 +16,7 @@ from starlette.applications import Starlette
 from starlette_admin.contrib.sqla import Admin
 
 #databse_nomi + psycopg2://database_user:password@lacalhost :port/ulanyaotgan dabase nomi
-engine = create_engine("postgresql+psycopg2://postgres:samandar7282@localhost:5432/gym")
+engine = create_engine("postgresql+psycopg2://postgres:1@pg:5432/postgres")
 session = Session(engine) #databsega insert update delate select uchun ishlatiladi
 
 class Base(DeclarativeBase):
